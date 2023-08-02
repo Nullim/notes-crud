@@ -13,12 +13,6 @@ This is a Note Manager App that helps you organize and manage your notes. The ap
 - React Router DOM 6.14.2
 - Axios 1.4.0
 
-### Testing Libraries
-
-- Testing Library Jest DOM 5.17.0
-- Testing Library React 13.4.0
-- Testing Library User Event 13.5.0
-
 ### Other Dependencies
 
 - Web Vitals 2.1.4
@@ -42,6 +36,7 @@ To run the frontend, use the following scripts:
 ### Database
 
 - MySQL 5.7
+- MySQL2 3.5.2
 
 ### ORM (Object-Relational Mapping)
 
@@ -51,14 +46,8 @@ To run the frontend, use the following scripts:
 
 - CORS 2.8.5
 
-### Other Dependencies
-
-- MySQL2 3.5.2
-- Sequelize CLI 6.6.1
-
 ### Development Dependencies
 
-- Dotenv 16.3.1
 - Nodemon 3.0.1
 
 ### Scripts
