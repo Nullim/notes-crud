@@ -1,0 +1,28 @@
+.note-card {
+  padding: 1vh;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #303b79;
+  margin-left: 1%;
+  margin-bottom: 10%;
+}
+
+.note-button {
+  color: white;
+  border-radius: 7px;
+  border-color: #1c2046;
+  background-color: #363a66;
+  transition: background-color 0.3s ease-in-out;
+  margin-right: 2%;
+}
+
+.note-button:hover {
+  background-color: #6C757D;
+}
+
+.display-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 3vh;
+}

@@ -1,0 +1,40 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: #2b529d;
+}
+
+.navbar-list {
+  list-style-type: none;
+  display: inline-flex;
+  padding: 0.3%;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-item {
+  text-align: center;
+  padding: 1vh;
+  font-size: 2vh;
+}
+
+.a {
+  text-decoration: none;
+  color: white;
+  padding: 1vh;
+  transition: all 0.2s ease-in-out;
+}
+
+.a:hover {
+  background-color: #3568c4;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-item a.active {
+  text-decoration: none;
+  color: white;
+  background-color: #3568c4;
+  padding: 1vh;
+}

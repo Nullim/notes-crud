@@ -1,0 +1,11 @@
+.notes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  gap: 1%;
+}
+
+.no-display-info {
+  text-align: center;
+  font-size: 3vh;
+  padding-bottom: 5%;
+}

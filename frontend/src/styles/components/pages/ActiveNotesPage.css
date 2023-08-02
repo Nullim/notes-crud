@@ -1,0 +1,25 @@
+.container {
+  margin: 1% auto;
+  height: 70%;
+  width: 70%;
+  background-color: #1c2046;
+  color: white;
+  position: relative;
+}
+
+.container-header {
+  text-align: left;
+  font-size: 4vh;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 3vh;
+}
+
+.notes-grid {
+  display: grid;
+  background-color: #303b79;
+}
+
+.buttons-group {
+  margin-top: 1%;
+  font-size: 3vh;
+}

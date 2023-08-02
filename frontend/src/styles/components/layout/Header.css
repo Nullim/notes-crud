@@ -1,0 +1,14 @@
+.header-holder {
+  text-align: center;
+  background-color: #007FFF;
+  color: white;
+  padding-bottom: 0.1vh;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.subtitle {
+  font-weight: lighter;
+}
