@@ -1,10 +1,14 @@
 const CategoryRepository = require('../repositories/categoryRepository');
 
-const addCategory = async(info) => {
-  if (info.category = '') {
-    throw new Error('Cannot add an empty category.')
+const addCategory = async(categories) => {
+  const categoryIds = [];
+
+  for(const categoryName of categories) {
+    const category = await CategoryRepository.create({ name: categoryName })
+    categoryIds.push(category.id)
   }
-  return await CategoryRepository.create(info);
+  
+  return categoryIds;
 }
 
 const deleteCategory = async(categoryId) => {
@@ -16,15 +20,26 @@ const getCategory = async(categoryId) => {
   if (!category) {
     throw new Error('Category not found.')
   }
+  return category;
 }
+
+const getCategoryByName = async (categoryName) => {
+  return await CategoryRepository.findByName(categoryName);
+};
 
 const getAllCategories = async() => {
   return await CategoryRepository.findAll();
 }
 
+const deleteEmptyCategories = async () => {
+  return await CategoryRepository.deleteEmptyCategories();
+};
+
 module.exports = {
   addCategory,
   deleteCategory,
   getCategory,
-  getAllCategories
+  getCategoryByName,
+  getAllCategories,
+  deleteEmptyCategories
 }

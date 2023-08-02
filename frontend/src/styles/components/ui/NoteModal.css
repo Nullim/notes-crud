@@ -37,7 +37,7 @@
   margin: 10% auto;
   padding: 2vh;
   border: 1px solid white;
-  width: 80%;
+  width: 40%;
 }
 
 .modal-content.active {
@@ -66,12 +66,11 @@
 
 .submit-button,
 .cancel-button {
-  margin-top: 1%;
   margin-right: 1%;
   border: 0;
   border-radius: 5px;
-  width: 10%;
-  height: 80%;
+  width: 20%;
+  height: 100%;
 }
 
 .submit-button {
@@ -81,3 +80,41 @@
 .cancel-button {
   background-color: #F39C12;
 }
+
+.category-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 2vh;
+  max-width: 100%;
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #383c6e;
+  padding: 1vh;
+  padding-left: 3vh;
+  border-radius: 4px;
+  max-width: fit-content;
+  white-space: normal;
+  position: relative;
+  cursor: default;
+}
+
+.close-icon {
+  position: absolute;
+  left: 1vh;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-icon:hover {
+  background-color: lightslategrey;
+  transition: background-color 0.3s ease;
+}
+

@@ -4,6 +4,15 @@
   gap: 1%;
 }
 
+.category-menu {
+  padding-bottom: 1%;
+  padding-left: 0.4vh;
+}
+
+.hide-menu {
+  display: none;
+}
+
 .no-display-info {
   text-align: center;
   font-size: 3vh;

@@ -1,20 +1,22 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 
-import EditNoteModal from '../ui/EditNoteModal';
+import NoteModal from '../ui/NoteModal';
 import DeleteModal from '../ui/DeleteModal';
 import NoteCard from '../ui/NoteCard';
 import Loading from './Loading';
 
-import '../../styles/components/layout/NotesList.css';
 import ArchiveNoteModal from '../ui/ArchiveNoteModal';
 
+import '../../styles/components/layout/NotesList.css';
 
 const NotesList = ({ refreshNotesKey, isArchived }) => {
   const [notes, setNotes] = useState([]);
-  const [isEditModalOpen, setEditModalOpen] = useState(false);
-  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [isModalOpen, setModalOpen] = useState(false);
   const [isArchiveModalOpen, setArchiveModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState("add");
   const [noteToEdit, setNoteToEdit] = useState(null);
   const [noteToDelete, setNoteToDelete] = useState(null);
   const [noteToArchive, setNoteToArchive] = useState(null);
@@ -31,9 +33,36 @@ const NotesList = ({ refreshNotesKey, isArchived }) => {
     setIsLoading(false)
   }, [isArchived]);
 
+  const fetchCategories = useCallback(async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/api/categories/all');
+      setCategories(response.data);
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    }
+  }, []);
+
+  const fetchNotesByCategory = useCallback(async (categoryName) => {
+    try {
+      const response = await axios.get(`http://localhost:8080/api/notes/categories/name/${categoryName}`);
+      setNotes(response.data);
+    } catch (error) {
+      console.error('Error fetching notes by category:', error);
+    }
+  }, []);
+
   useEffect(() => {
     fetchData();
-  }, [refreshNotesKey, isArchived, fetchData]);
+    fetchCategories()
+  }, [refreshNotesKey, fetchData, fetchCategories]);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      fetchNotesByCategory(selectedCategory); 
+    } else {
+      fetchData();
+    }
+  }, [selectedCategory, fetchData, fetchNotesByCategory, fetchCategories]);
 
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
@@ -42,12 +71,12 @@ const NotesList = ({ refreshNotesKey, isArchived }) => {
 
   const handleEditNote = (note) => {
     setNoteToEdit(note);
-    setEditModalOpen(true);
+    setModalMode("edit");
+    setModalOpen(true);
   };
 
   const handleOpenDeleteModal = (note) => {
     setNoteToDelete(note);
-    setDeleteModalOpen(true);
   };
 
   const handleOpenArchiveModal = (note) => {
@@ -56,9 +85,14 @@ const NotesList = ({ refreshNotesKey, isArchived }) => {
   }
 
   const handleCloseModal = () => {
-    setEditModalOpen(false);
-    setDeleteModalOpen(false);
+    setModalOpen(false);
     setArchiveModalOpen(false);
+    setModalMode("add");
+    setNoteToEdit(null);
+    setNoteToDelete(null);
+    setSelectedCategory('');
+
+    fetchCategories();
     fetchData();
   };
 
@@ -69,8 +103,37 @@ const NotesList = ({ refreshNotesKey, isArchived }) => {
       ) : isArchived === true && notes.length === 0 ? (
         <p className='no-display-info'>No notes have been archived yet!</p>
       ) : notes.length === 0 ? (
-        <p className='no-display-info'>No notes have been added yet! Why not make one?</p>
+        <div>
+          <div className={`${isArchived ?'hide-menu' : 'category-menu'}`}>
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+          <option value="">All Categories</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.name}>
+              {category.name}
+            </option>
+          ))}
+          </select>
+          </div>
+          <p className='no-display-info'>No notes here!</p>
+        </div>
       ) : (
+        <div>
+          <div className={`${isArchived ?'hide-menu' : 'category-menu'}`}>
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+          <option value="">All Categories</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.name}>
+              {category.name}
+            </option>
+          ))}
+          </select>
+        </div>
         <div className='notes-list'>
           {notes.map(note => (
             <NoteCard
@@ -83,9 +146,16 @@ const NotesList = ({ refreshNotesKey, isArchived }) => {
             />
           ))}
         </div>
+        </div>
       )}
-      <DeleteModal isOpen={isDeleteModalOpen} onClose={handleCloseModal} note={noteToDelete} setNotes={setNotes} />
-      <EditNoteModal isOpen={isEditModalOpen} onClose={handleCloseModal} note={noteToEdit} setNotes={setNotes} />
+      <DeleteModal
+       isOpen={Boolean(noteToDelete)} 
+       onClose={() => setNoteToDelete(null)} 
+       note={noteToDelete} 
+       setNotes={setNotes}
+       fetchCategories={fetchCategories} 
+       />
+      <NoteModal isOpen={isModalOpen} onClose={handleCloseModal} mode={modalMode} note={noteToEdit} setNotes={setNotes} />
       <ArchiveNoteModal isOpen={isArchiveModalOpen} onClose={handleCloseModal} note={noteToArchive} setNotes={setNotes} />
     </div>
   );

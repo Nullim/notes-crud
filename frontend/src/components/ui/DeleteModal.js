@@ -5,7 +5,7 @@ import Loading from '../layout/Loading';
 
 import '../../styles/components/ui/ConfirmModal.css'
 
-const DeleteModal = ({ isOpen, onClose, note, setNotes }) => {
+const DeleteModal = ({ isOpen, onClose, note, setNotes, fetchCategories }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const deleteNote = (event) => {
@@ -16,6 +16,7 @@ const DeleteModal = ({ isOpen, onClose, note, setNotes }) => {
       .then(() => {
         setIsLoading(false);
         onClose();
+        fetchCategories();
         fetchData();
       })
       .catch((error) => {
