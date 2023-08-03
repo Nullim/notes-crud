@@ -8,8 +8,10 @@ This is a Note Manager App that helps you organize and manage your notes. The ap
 
 ## Getting Started
 Before running the app, you need:
--to set up the database configuration
--have node and npm installed
+
+- to set up the database configuration
+
+- have node and npm installed
 
 1. Clone this repository to your local machine.
 2. Modify the `backend/src/database/dbConfig.js` file with the following content:
