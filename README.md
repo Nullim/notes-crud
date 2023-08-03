@@ -116,4 +116,4 @@ Before running the app, make sure you have the following installed on your syste
 
 - Node.js
 - MySQL Server (Version 5.7)
-- A MySQL database for the app with appropriate credentials (You can set up this in the .env file).
+- Appropriate credentials (You can set up this in the dbconfig.js file mentioned in the instructions) to create a database in you MySQL Server.
