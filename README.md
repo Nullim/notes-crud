@@ -35,9 +35,15 @@ Replace your-mysql-username, your-mysql-password, and your-mysql-database-name w
 Make sure your MySQL server is running before starting!
 
 ## Running the App
-To start the app, open the repository and run the following command from the package.json located in the root:
+To start the app, open the repository and run the following command from the package.json located in the root using GitBash:
 
 npm run start
+
+If the program does not run after running the script then follow these steps:
+
+1. Install the dependencies from the /backend and /frontend package.json folders using "npm i"
+2. Head to the backend directory and run the "npm run start" command there
+3. Head to the frontend directory and run the "npm run start" command there
 
 Now you should have the Note Manager App up and running locally.
 

@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "start": "bash start.sh"
+    "start": "bash run_app.sh"
   }
 }
