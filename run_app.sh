@@ -27,16 +27,33 @@ install_dependencies() {
   cd ..
 }
 
-# Function to run the backend server
+# Function to run the backend server in the background
 run_backend() {
   cd backend
-  npm run dev
+  npm run dev &
+  BACKEND_PID=$!
+  cd ..
 }
 
-# Function to run the frontend development server
+# Function to run the frontend development server in the background
 run_frontend() {
   cd frontend
-  npm run start
+  npm run start &
+  FRONTEND_PID=$!
+  cd ..
+}
+
+# Function to stop the servers and frontend client
+stop_servers() {
+  if [[ -n $BACKEND_PID ]]; then
+    echo "Stopping backend server..."
+    kill $BACKEND_PID
+  fi
+
+  if [[ -n $FRONTEND_PID ]]; then
+    echo "Stopping frontend development server..."
+    kill $FRONTEND_PID
+  fi
 }
 
 # Main function to run the app setup
@@ -51,11 +68,15 @@ run_app() {
 
   echo "App setup completed!"
 
-  # Start the backend server in the background
-  run_backend &
-
-  # Start the frontend development server
+  # Start the backend server and frontend development server in the background
+  run_backend
   run_frontend
+
+  # Trap the SIGINT signal (Ctrl+C) and stop the servers before exiting the script
+  trap stop_servers SIGINT
+
+  # Wait for the background processes to finish
+  wait
 }
 
 # Execute the app setup
