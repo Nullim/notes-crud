@@ -1,5 +1,7 @@
 # Note Manager App
 
+## Follow this link to view the live version! [https://notes-crud-05b45bb110b0.herokuapp.com/](https://notes-crud-05b45bb110b0.herokuapp.com/)
+
 ## Description
 
 This is a Note Manager App that helps you organize and manage your notes. The app is divided into frontend and backend components. The frontend is built using React, and the backend is powered by Node.js with Express. The data is stored in a MySQL database using Sequelize as the ORM (Object-Relational Mapping).
