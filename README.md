@@ -19,11 +19,11 @@ Before running the app, you need:
 
 - To set up the database configuration
 
-- To have npm installed
+- To have npm installed (mandatory)
 
 - To have installed the MySQL command line interface on your PC.
 
-If you don't meet some or any of these requisites, head to the "Running the App" section below.
+If you don't meet some of these requisites, head to the "Running the App" section below.
 
 ## Instructions
 
