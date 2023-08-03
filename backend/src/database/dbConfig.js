@@ -1,8 +1,8 @@
 module.exports = {
   HOST: 'localhost',
-  USER: 'root',
-  PASSWORD: 'Silver W0lf',
-  DB: 'notes_database',
+  USER: 'your_mysql_username',
+  PASSWORD: 'your_myseql_password',
+  DB: 'your_mysql_database_name',
   dialect: 'mysql',
 
   pool: {

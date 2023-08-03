@@ -4,6 +4,41 @@
 
 This is a Note Manager App that helps you organize and manage your notes. The app is divided into frontend and backend components. The frontend is built using React, and the backend is powered by Node.js with Express. The data is stored in a MySQL database using Sequelize as the ORM (Object-Relational Mapping).
 
+## Getting Started
+Before running the app, you need:
+-to set up the database configuration
+-have node and npm installed
+
+1. Clone this repository to your local machine.
+2. Modify the `backend/src/database/dbConfig.js` file with the following content:
+
+```js
+module.exports = {
+  HOST: 'localhost',
+  USER: 'your-mysql-username',
+  PASSWORD: 'your-mysql-password',
+  DB: 'your-mysql-database-name',
+  dialect: 'mysql',
+
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  }
+};
+```
+Replace your-mysql-username, your-mysql-password, and your-mysql-database-name with your actual MySQL credentials.
+
+Make sure your MySQL server is running before starting!
+
+## Running the App
+To start the app, open the repository and run the following command from the package.json located in the root:
+
+npm run start
+
+Now you should have the Note Manager App up and running locally.
+
 ## Frontend
 
 ### Technologies Used
@@ -64,14 +99,3 @@ Before running the app, make sure you have the following installed on your syste
 - Node.js
 - MySQL Server (Version 5.7)
 - A MySQL database for the app with appropriate credentials (You can set up this in the .env file).
-
-## Getting Started
-
-1. Clone this repository to your local machine.
-2. Install frontend dependencies by navigating to the `frontend` folder and running `npm install`.
-3. Install backend dependencies by navigating to the `backend` folder and running `npm install`.
-4. Create a `.env` file in the `backend` folder and set the necessary environment variables for connecting to your MySQL database. (Refer to `.env.example` for reference).
-5. Start the frontend by running `npm start` from the `frontend` folder.
-6. Start the backend by running `npm run dev` from the `backend` folder.
-
-Now you should have the Note Manager App up and running locally.
