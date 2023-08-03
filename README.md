@@ -47,6 +47,8 @@ To start the app, open the repository and run the following command from the pac
 
 npm run start
 
+Use CTRL + C to stop the server.
+
 If the program does not run after running the script then follow these steps:
 
 1. Install the dependencies from the /backend and /frontend package.json folders using "npm i" (You will have to navigate to these folders yourself)
