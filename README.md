@@ -6,18 +6,26 @@
 
 This is a Note Manager App that helps you organize and manage your notes. The app is divided into frontend and backend components. The frontend is built using React, and the backend is powered by Node.js with Express. The data is stored in a MySQL database using Sequelize as the ORM (Object-Relational Mapping).
 
+## Prerequisites
+
+Make sure you have the following installed on your system:
+
+- Node.js
+- MySQL Server (Version 5.7)
+- Appropriate credentials (You can set up this in the dbconfig.js file mentioned in the instructions) to create a database in you MySQL Server.
+
 ## Getting Started
 Before running the app, you need:
 
 - To set up the database configuration
 
-- Have Node and npm installed
+- To have npm installed
 
-- Have the MySQL command line interface installed on your PC.
+- To have installed the MySQL command line interface on your PC.
 
 If you don't meet some or any of these requisites, head to the "Running the App" section below.
 
-## Instructiones
+## Instructions
 
 1. Clone this repository to your local machine.
 2. Modify the `backend/src/database/dbConfig.js` file with the following content:
@@ -109,11 +117,3 @@ If you wish to run the backend separately, use the following scripts from within
 
 - `npm start`: Start the backend server for production.
 - `npm run dev`: Start the backend server in development mode using Nodemon for auto-reloading.
-
-## Prerequisites
-
-Before running the app, make sure you have the following installed on your system:
-
-- Node.js
-- MySQL Server (Version 5.7)
-- Appropriate credentials (You can set up this in the dbconfig.js file mentioned in the instructions) to create a database in you MySQL Server.
