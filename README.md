@@ -54,12 +54,12 @@ Now you should have the Note Manager App up and running locally.
 
 ### Scripts
 
-To run the frontend, use the following scripts:
+If you wish to run the frontend separately, use the following scripts from within the frontend directory:
 
 - `npm start`: Start the development server.
 - `npm build`: Build the production-ready bundle.
-- `npm test`: Run tests for the frontend.
-- `npm eject`: Eject the app from Create React App configuration.
+
+Remember to install dependencies!
 
 ## Backend
 
@@ -87,7 +87,7 @@ To run the frontend, use the following scripts:
 
 ### Scripts
 
-To run the backend, use the following scripts:
+If you wish to run the backend separately, use the following scripts from within the backend directory
 
 - `npm start`: Start the backend server for production.
 - `npm run dev`: Start the backend server in development mode using Nodemon for auto-reloading.
