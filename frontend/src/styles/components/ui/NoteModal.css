@@ -82,8 +82,8 @@
 }
 
 .category-grid {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
   gap: 2vh;
   max-width: 100%;
 }

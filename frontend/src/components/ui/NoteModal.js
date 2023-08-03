@@ -99,7 +99,8 @@ const NoteModal = ({ isOpen, onClose, mode, note, onNoteAdded, setNotes }) => {
           categories: categoryIds,
         });
         onNoteAdded();
-        resetCategories()
+        onClose();
+        resetCategories();
       } else if (mode === "edit" && note) {
         await Axios.put(`http://localhost:8080/api/notes/update/${note.id}`, {
           title,
@@ -142,6 +143,7 @@ const NoteModal = ({ isOpen, onClose, mode, note, onNoteAdded, setNotes }) => {
     if (!isOpen && isAddingNote) {
       setTitle("");
       setTextContent("");
+      resetCategories();
       setIsLoading(false);
     }
   }, [isOpen, isAddingNote]);

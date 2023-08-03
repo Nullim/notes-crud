@@ -96,6 +96,7 @@ const NotesList = ({ refreshNotesKey, isArchived }) => {
     fetchData();
   };
 
+
   return (
     <div>
       {isLoading ? (
@@ -155,8 +156,19 @@ const NotesList = ({ refreshNotesKey, isArchived }) => {
        setNotes={setNotes}
        fetchCategories={fetchCategories} 
        />
-      <NoteModal isOpen={isModalOpen} onClose={handleCloseModal} mode={modalMode} note={noteToEdit} setNotes={setNotes} />
-      <ArchiveNoteModal isOpen={isArchiveModalOpen} onClose={handleCloseModal} note={noteToArchive} setNotes={setNotes} />
+      <NoteModal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+        mode={modalMode} 
+        note={noteToEdit} 
+        setNotes={setNotes}
+      />
+      <ArchiveNoteModal 
+        isOpen={isArchiveModalOpen} 
+        onClose={handleCloseModal} 
+        note={noteToArchive} 
+        setNotes={setNotes} 
+      />
     </div>
   );
 }
