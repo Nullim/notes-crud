@@ -25,7 +25,7 @@ install_dependencies() {
 
 run_backend() {
   cd backend
-  npm run dev &
+  npm run start &
   BACKEND_PID=$!
   cd ..
 }
