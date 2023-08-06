@@ -23,8 +23,6 @@ Before running the app, you need:
 
 - To have installed the MySQL command line interface on your PC.
 
-If you don't meet some of these requisites, head to the "Running the App" section below.
-
 ## Instructions
 
 1. Clone this repository to your local machine.
