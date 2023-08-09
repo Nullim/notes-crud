@@ -1,6 +1,6 @@
 # Note Manager App
 
-## Follow [this](https://notes-crud-05b45bb110b0.herokuapp.com/) link to view the live version!
+## Follow [this](https://notes-crud-05b45bb110b0.herokuapp.com/) link to view the live version! (Currently offline, please message me if you want to checkout the app)
 
 ## Description
 
